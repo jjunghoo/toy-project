@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/53f8f6c2de.js" crossorigin="anonymous"></script>
+
+    <!-- Google Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+
+        /* COMMON */
+        .inner {
+            margin: 0 auto;
+            position: relative;
+        }
+        p {
+            color: #858585;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+
+
+        body {
+            width: 375px;
+            border: 2px solid green;
+        }
+        main {
+            margin: 0 auto;
+        }
+        section {
+            border: 2px solid dodgerblue;
+            
+        }
+        section .account {
+            border: 2px solid red;
+            padding: 2px 20px;
+        }
+        section .account > .account__header {
+            border: 2px solid darkorange;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        section .account > .account__header > .icons {
+            border: 2px solid black;
+        }
+        section .account > .account__header > .icons img:first-child {
+            padding-right: 10x;
+        }
+        section .account__main {
+            border: 2px solid darkorange;
+        }
+        section .account__main > .account__main__status_board {
+            width: 259px;  
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            padding: 14px 0 6px;
+            border-radius: 10px;
+        }
+        section .account__main > .account__main__status_board p {
+            /* color: #858585; */
+            /* font-weight: bold; */
+        }
+        section .account__main > .account__main__status_board 
+        .account__main__account_balance {
+            font-size: 22px;
+            font-weight: bold;
+            /* display: inline-block; */
+            margin: 16px 0;    
+        }
+        section .account__main > .account__main__status_board
+        .account__main__account_check {
+            width: 202px;
+            /* border: 1px solid black; */
+            position: relative;
+            margin-bottom: 8px;
+        }
+        section .account__main > .account__main__status_board
+        .account__main__account_check .total_limit {
+            width: 202px;
+            height: 6px;
+            background-color: #C4C4C4;
+            border-radius: 5px;
+        }
+        section .account__main > .account__main__status_board
+        .account__main__account_check .usage_limit {
+            width: 128px;
+            height: 6px;
+            background-color: #FFDB4C;
+            border-radius: 5px 0 0 5px;
+        }
+        section .account__main > .account__main__status_board
+        .account__main__account_check .limit_line {
+            width: 4px;
+            height: 17px;
+            position: absolute;
+            top: -8px;
+            right: 55px;
+            background: #FF5F00;
+            border: 2px solid #FFFFFF;
+            border-radius: 2px;
+        }
+        section .account__main > .account__main__status_board .remittance {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        section .account__main > .account__main__status_board .graph {
+            position: absolute;
+            bottom: 23px;
+            right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <!-- fitsr section-->
+        <section>
+
+            <div class="account">
+                <header class="account__header">
+                    <img src="/images/아바타.png" alt="프로필 사진">
+                    <h3>생활비</h3>
+                    <div class="icons">
+                        <img src="/images/Vector.png" alt="결제 아이콘">
+                        <img src="/images/search.png" alt="검색 아이콘">
+                    </div>
+                </header>
+                <div class="account__main">
+                    <div class="account__main__status_board inner">
+                        <p>355-673877-78773</p>
+                        <span class="account__main__account_balance">1,240,000원</span>
+                        <div class="account__main__account_check">
+                            <div class="total_limit">
+                                <div class="usage_limit"></div>
+                            </div>
+                            <div class="limit_line"></div>
+                        </div>
+                        <p>5일 동안 210,000원 남음</p>
+                        <a href="#" class="remittance">이체</a>
+                        <a href="#" class="graph"><img src="/images/graph.png" alt="그래프 이미지"></a>
+                    </div>
+                </div>
+                <ul class="account__ad"></ul>
+            </div>
+
+
+            <div class="contents">
+                <div class="contents__money-box">
+                    <ul></ul>
+                </div>
+                <ul class="contents__history">
+                    <ul></ul>
+                </ul>
+            </div>
+
+        </section>
+
+
+        <!-- second section -->
+        <section>
+
+            <div class="option">
+                <div class="option__controller"></div>
+            </div>
+
+            <div class="reports">
+                <div class="reports__chart"></div>
+
+                <div class="report__graph"></div>
+            </div>
+
+        </section>
+        
+        
+        <!-- nav -->
+        <nav></nav>
+
+    </main>
+</body>
+</html>
