@@ -170,7 +170,7 @@ section .contents .contents__money-box ul {
     display: flex;
     /* justify-content: center; */
     align-items: center;
-    /* overflow: hidden; */
+    /* overflow-x: hidden; */
     
 }
 section .contents .contents__money-box ul li {
@@ -228,9 +228,38 @@ section .contents .contents__money-box .add_saving_box > span {
 
 section .contents > .contents__history {
     border: 2px solid darkorange;
-
+    margin-top: 5px;
+    height: 200px;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
 }
-
+section .contents > .contents__history::-webkit-scrollbar {
+    display: none;
+}
+section .contents > .contents__history div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    /* border-bottom: 1px solid #dcdcdc; */
+}
+section .contents > .contents__history div p:not(.today_spending):not(.date) {
+    /* font-size: 17px;
+    color: #444444; */
+}
+section .contents > .contents__history div:first-child {
+    padding: 5px 10px;
+}
+section .contents > .contents__history .date {
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+section .contents > .contents__history .date .today_spending {
+    font-weight: normal;
+}
+section .contents > .contents__history .remittance_list .remittance {
+    color: #FF5F00;
+}
 
 
 
