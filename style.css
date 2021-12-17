@@ -1,0 +1,273 @@
+  /* COMMON */
+  .inner {
+    margin: 0 auto;
+    position: relative;
+}
+p {
+    color: #858585;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+body {
+    width: 375px;
+    border: 2px solid green;
+}
+main {
+    margin: 0 auto;
+    background: #EEECE5;
+}
+section {
+    border: 2px solid dodgerblue;
+    
+}
+section .account {
+    border: 2px solid red;
+    padding: 2px 20px;
+}
+section .account > .account__header {
+    border: 2px solid darkorange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+section .account > .account__header > img {
+    margin-left: 6px;
+}
+section .account > .account__header > h3 {
+    margin-left: 12px;
+}
+section .account > .account__header > .icons {
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .account > .account__header > .icons > .easy_payment_wrap {
+    margin-right: 12px;
+    position: relative;
+}
+section .account > .account__header > .icons > .easy_payment_wrap::after {
+    content: '';
+    clear: both;
+    display: block;
+    width: 17px;
+    border: 1px solid #FF5F00;
+    background-color: #FF5F00;
+    position: absolute;
+    top: 10px;
+    left: 2px;
+}
+section .account__main {
+    border: 2px solid darkorange;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+section .account__main > .account__main__status_board {
+    width: 259px;  
+    border: 2px solid black;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 14px 0 6px;
+    border-radius: 12px;
+}
+section .account__main > .account__main__status_board p {
+    /* color: #858585; */
+    /* font-weight: bold; */
+}
+section .account__main > .account__main__status_board 
+.account__main__account_balance {
+    font-size: 22px;
+    font-weight: bold;
+    /* display: inline-block; */
+    margin: 20px 0 25px 0;    
+}
+section .account__main > .account__main__status_board
+.account__main__account_check {
+    width: 202px;
+    /* border: 1px solid black; */
+    position: relative;
+    margin-bottom: 16px;
+}
+section .account__main > .account__main__status_board
+.account__main__account_check .total_limit {
+    width: 182px;
+    height: 4px;
+    background-color: #C4C4C4;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+section .account__main > .account__main__status_board
+.account__main__account_check .usage_limit {
+    width: 108px;
+    height: 4px;
+    background-color: #FFDB4C;
+    border-radius: 5px 0 0 5px;
+}
+section .account__main > .account__main__status_board
+.account__main__account_check .limit_line_wrap {
+    width: 4px;
+    height: 17px;
+    position: absolute;
+    top: -9px;
+    right: 65px;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    background-color: #fff;
+} 
+section .account__main > .account__main__status_board
+.account__main__account_check .limit_line {
+    width: 4px;
+    height: 17px;
+    background: #FF5F00;
+    border-radius: 2px;
+}
+section .account__main > .account__main__status_board .remittance {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    top: 14px;
+    right: 15px;
+}
+section .account__main > .account__main__status_board .graph {
+    position: absolute;
+    bottom: 32px;
+    right: 15px;
+}
+
+section .account > .account__ad {
+    border: 2px solid darkorange;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+section .account > .account__ad li {
+    margin-left: 30px;
+}
+section .account > .account__ad .ad_move {
+    color: black;
+    margin-left: 7px;
+    text-align: center;
+}
+section .contents {
+    border: 2px solid red;
+    padding: 10px 20px;
+}
+section .contents .contents__money-box {
+    border: 2px solid darkorange;
+}
+section .contents .contents__money-box ul {
+    border: 2px solid purple;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* overflow: hidden; */
+    
+}
+section .contents .contents__money-box ul li {
+    border: 2px solid blue;
+    width: 128px;
+    margin-right: 10px;
+    flex: 0 0 auto;
+}
+section .contents .contents__money-box .saving_box {
+    border: 2px solid black;
+    background-color: #dadada;
+    border-radius: 0px 6px 6px 0px;
+}
+section .contents .contents__money-box .saving_box .savings {
+    width: 77px;
+    /* display: block; */
+    background-color: #FF5F00;
+    border-radius: 6px 0px 0px 6px;
+    padding: 2px 5px;
+}
+section .contents .contents__money-box .saving_box .savings p {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 300;
+    padding: 3px;
+}
+section .contents .contents__money-box .add_saving_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+section .contents .contents__money-box .add_saving_box > .plus_wrap {
+    width: 25px;
+    height: 25px;
+    background: #FF5F00;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section .contents .contents__money-box .add_saving_box > .plus_wrap span {
+    color: #fff;
+    font-size: 1.6em;
+    
+}
+section .contents .contents__money-box .add_saving_box > span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FF5F00;
+    margin-top: 1px;
+
+}
+
+section .contents > .contents__history {
+    border: 2px solid darkorange;
+
+}
+
+
+
+
+
+
+
+/* NAV */
+nav {
+    background: linear-gradient(163.63deg, #00BDB2 11.35%, #C4E7B8 139.96%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+}
+nav .home {
+    background-image: url('/images/home_bg.png');
+}
+nav .home img {
+    width: 24px;
+    height: 21px;
+    object-fit: cover;
+}
+nav .group img {
+    margin-top: 7px;
+    width: 24px;
+    height: 21px;
+    object-fit: cover;
+}
+nav .group img {
+    margin-top: 2px;
+    width: 24px;
+    height: 22px;
+    object-fit: cover;
+}
+nav .more img {
+    margin-bottom: 5px;
+    width: 27px;
+    height: 6px;
+    object-fit: cover;
+}

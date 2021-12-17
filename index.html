@@ -14,169 +14,8 @@
 
     <!-- Google Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <style>
-
-        /* COMMON */
-        .inner {
-            margin: 0 auto;
-            position: relative;
-        }
-        p {
-            color: #858585;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-
-
-        body {
-            width: 375px;
-            border: 2px solid green;
-        }
-        main {
-            margin: 0 auto;
-            background: #EEECE5;
-        }
-        section {
-            border: 2px solid dodgerblue;
-            
-        }
-        section .account {
-            border: 2px solid red;
-            padding: 2px 20px;
-        }
-        section .account > .account__header {
-            border: 2px solid darkorange;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-        }
-        section .account > .account__header > img {
-            margin-left: 6px;
-        }
-        section .account > .account__header > h3 {
-            margin-left: 12px;
-        }
-        section .account > .account__header > .icons {
-            border: 2px solid black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        section .account > .account__header > .icons > .easy_payment_wrap {
-            margin-right: 12px;
-            position: relative;
-        }
-        section .account > .account__header > .icons > .easy_payment_wrap::after {
-            content: '';
-            clear: both;
-            display: block;
-            width: 17px;
-            border: 1px solid #FF5F00;
-            background-color: #FF5F00;
-            position: absolute;
-            top: 10px;
-            left: 2px;
-        }
-        section .account__main {
-            border: 2px solid darkorange;
-            padding: 10px 20px;
-            margin-top: 15px;
-        }
-        section .account__main > .account__main__status_board {
-            width: 259px;  
-            border: 2px solid black;
-            background-color: #fff;
-            display: flex;
-            flex-direction: column;
-            /* justify-content: center; */
-            align-items: center;
-            padding: 14px 0 6px;
-            border-radius: 12px;
-        }
-        section .account__main > .account__main__status_board p {
-            /* color: #858585; */
-            /* font-weight: bold; */
-        }
-        section .account__main > .account__main__status_board 
-        .account__main__account_balance {
-            font-size: 22px;
-            font-weight: bold;
-            /* display: inline-block; */
-            margin: 20px 0 25px 0;    
-        }
-        section .account__main > .account__main__status_board
-        .account__main__account_check {
-            width: 202px;
-            /* border: 1px solid black; */
-            position: relative;
-            margin-bottom: 16px;
-        }
-        section .account__main > .account__main__status_board
-        .account__main__account_check .total_limit {
-            width: 182px;
-            height: 4px;
-            background-color: #C4C4C4;
-            border-radius: 5px;
-            margin: 0 auto;
-        }
-        section .account__main > .account__main__status_board
-        .account__main__account_check .usage_limit {
-            width: 108px;
-            height: 4px;
-            background-color: #FFDB4C;
-            border-radius: 5px 0 0 5px;
-        }
-        section .account__main > .account__main__status_board
-        .account__main__account_check .limit_line_wrap {
-            width: 4px;
-            height: 17px;
-            position: absolute;
-            top: -9px;
-            right: 65px;
-            border: 2px solid #fff;
-            border-radius: 2px;
-            background-color: #fff;
-        } 
-        section .account__main > .account__main__status_board
-        .account__main__account_check .limit_line {
-            width: 4px;
-            height: 17px;
-            background: #FF5F00;
-            border-radius: 2px;
-        }
-        section .account__main > .account__main__status_board .remittance {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-            font-size: 12px;
-            position: absolute;
-            top: 14px;
-            right: 15px;
-        }
-        section .account__main > .account__main__status_board .graph {
-            position: absolute;
-            bottom: 32px;
-            right: 15px;
-        }
-
-        section .account > .account__ad {
-            border: 2px solid darkorange;
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 5px 0;
-        }
-        section .account > .account__ad li {
-            margin-left: 30px;
-        }
-        section .account > .account__ad .ad_move {
-            color: black;
-            margin-left: 7px;
-            text-align: center;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
@@ -223,14 +62,56 @@
             </div>
 
 
+
             <div class="contents">
+                
                 <div class="contents__money-box">
-                    <ul></ul>
+                    <ul>
+                        <li>
+                            <div class="saving_box">
+                                <div class="savings">
+                                    <p>여행가자!</p>
+                                    <p>842,000원</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="saving_box">
+                                <div class="savings">
+                                    <p>냉장고사기</p>
+                                    <p>142,200원</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="saving_box">
+                                <div class="savings">
+                                    <p>여행가자!</p>
+                                    <p>842,000원</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="add_saving_box">
+                            <div class="plus_wrap">
+                                <span class="material-icons">add</span>
+                            </div>
+                            <span>저금통 만들기</span>
+                        </li>
+                    </ul>
                 </div>
+                
+                
                 <ul class="contents__history">
-                    <ul></ul>
+                    <ul>
+                        <li>
+                            <span>오늘</span>
+                        </li>
+                    </ul>
                 </ul>
+
             </div>
+
+            
 
         </section>
 
@@ -249,11 +130,25 @@
             </div>
 
         </section>
-        
-        
-        <!-- nav -->
-        <nav></nav>
 
+
+        <!-- NAV -->
+        <nav>
+            <div class="home">
+                <img src="/images/home.png" alt="home 이미지">
+            </div>
+            <div class="group">
+                <img src="/images/group.png" alt="group 이미지">
+            </div>
+            <div class="message">
+                <img src="/images/message.png" alt="message 이미지">
+            </div>
+            <div class="more">
+                <img src="/images/more.png" alt="more 이미지">
+            </div>
+        </nav>
+
+        
     </main>
 </body>
 </html>
