@@ -163,7 +163,7 @@ section .contents {
     background-color: #f5f5f5;
     box-shadow: 0px -5px 14px rgba(189, 144, 28, 0.08);
     border-radius: 30px 30px 0px 0px;
-    padding: 10px 20px;
+    padding: 24px 20px 10px;
     position: relative;
 }
 section .contents > .up_btn_wrap {
@@ -171,9 +171,10 @@ section .contents > .up_btn_wrap {
     width: 100px;
     margin: auto;
     padding: 7px 10px;
-    /* position: absolute;
-    top: -3px; */
-    margin-top: -15px;
+    position: absolute;
+    top: -3px;
+    left: 120px;
+    /* margin-top: -15px; */
     cursor: pointer;
 }
 section .contents > .up_btn_wrap > .up_btn {
@@ -280,7 +281,7 @@ section .contents > .contents__history div:first-child {
 section .contents > .contents__history .date {
     color: black;
     font-weight: bold;
-    font-size: 14px;
+    /* font-size: 14px; */
 }
 section .contents > .contents__history .date .today_spending {
     font-weight: normal;
