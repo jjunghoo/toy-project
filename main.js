@@ -4,29 +4,31 @@ const contents = document.querySelector('contents');
 const upDownBtn = document.querySelector('.up_btn_wrap');
 
 // console.log(contents.offsetTop);
-function resize(e){
-    console.log(e)
-    let parent = dragBtn.parentNode;
-    let dx = m_pos - e.y;
-    m_pos = e.y;
-    parent.style.height = (parseInt(getComputedStyle(parent, '').height) + dx) + "px";
-}
+// function resize(e){
+//     console.log(e)
+//     let parent = dragBtn.parentNode;
+//     let dx = m_pos - e.y;
+//     m_pos = e.y;
+//     parent.style.height = (parseInt(getComputedStyle(parent, '').height) + dx) + "px";
+//     parent.style.transform = `translateY(-${e.y}px)`;
+// }
 
-const dragBtn = document.querySelector(".up_btn_wrap");
-dragBtn.addEventListener("mousedown", function(e){
-    console.log(e.pageY);
-    m_pos = e.y;
-    document.addEventListener("mousemove", resize, false);
-}, false);
-document.addEventListener("mouseup", function(){
-    document.removeEventListener("mousemove", resize, false);
-}, false);
-
-
-
-
+// const dragBtn = document.querySelector(".up_btn_wrap");
+// dragBtn.addEventListener("mousedown", function(e){
+//     // console.log(e.target.offsetParent);
+//     console.log(e);
+//     m_pos = e.y;
+//     document.addEventListener("mousemove", resize, false);
+// }, false);
+// document.addEventListener("mouseup", function(){
+//     document.removeEventListener("mousemove", resize, false);
+// }, false);
 
 
+
+
+
+// 저금통 좌우 슬라이드
 const slider = document.querySelector('.contents__money-box ul');
 console.log(slider)
 let isMouseDown = false;
@@ -61,8 +63,74 @@ slider.addEventListener('mousemove', (e) => {
 });
 
 
+// 화면 좌우 슬라이드
+const main = document.querySelector('main');
+const sections = document.querySelectorAll('section');
+console.log(sections);
+const money_box = document.querySelector('.contents__money-box');
+console.log(main)
+let MouseDown = false;
+let start_x, scroll_left;
 
+main.addEventListener('mousedown', (e) => {
+    MouseDown = true;
+    main.classList.add('active'); 
 
+    start_x = e.pageX - main.offsetLeft;
+    scroll_left = main.scrollLeft;
+
+});
+
+main.addEventListener('mouseleave', () => {
+    MouseDown = false;
+    main.classList.remove('active');
+})
+
+main.addEventListener('mouseup', () => {
+    MouseDown = false;
+    main.classList.remove('active');
+});
+
+main.addEventListener('mousemove', (e) => {
+    if (!MouseDown) return;
+    console.log(e.path)
+    e.preventDefault();
+    const x = e.pageX - main.offsetLeft;
+    const walk = (x - start_x) * .7;
+    
+    if(e.path.includes(money_box)) {
+        console.log(111111111);
+        return;
+    }
+    main.scrollLeft = scroll_left - walk;
+    console.log(main.scrollLeft);
+
+    for(let i = 0; i < sections.length; i++) {
+        if(main.scrollLeft > main.clientWidth / 2) {
+            sections[i].style.transition = '1s';
+            sections[i].style.transform = `translateX(${-(main.clientWidth - main.scrollLeft)}px)`;
+        } else {
+            sections[i].style.transition = '1s';
+            sections[i].style.transform = `translateX(${(main.scrollLeft)}px)`;
+        }
+        
+    }    
+    // if(main.scrollLeft > main.clientWidth / 2) {
+    //     // main.style.transform = `translateX(${-(main.clientWidth - main.scrollLeft)}px)`;
+    //     for(let i = 0; i < sections.length; i++) {
+    //         sections[i].style.transition = '1s';
+    //         sections[i].style.transform = `translateX(${-(main.clientWidth - main.scrollLeft)}px)`;
+            
+    //     }
+    // } else {
+    //     // 반대 경우
+    //     for(let i = 0; i < sections.length; i++) {
+    //         sections[i].style.transition = '1s';
+    //         sections[i].style.transform = `translateX(${(main.scrollLeft)}px)`;
+    //     }
+        
+    // }
+});
 
 
 // JSON

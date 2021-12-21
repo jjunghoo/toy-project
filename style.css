@@ -14,14 +14,21 @@ p {
 body {
     width: 375px;
     border: 2px solid green;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 main {
     margin: 0 auto;
     background: #EEECE5;
+    display: flex;
+    overflow-x: hidden;
 }
 section {
     border: 2px solid dodgerblue;
-    
+    width: 371px;
 }
 section .account {
     border: 2px solid red;
@@ -262,21 +269,29 @@ section .contents > .contents__history::-webkit-scrollbar {
     display: none;
 }
 section .contents > .contents__history > ul li:not(.contents__history > ul li:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 section .contents > .contents__history div {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    /* border-bottom: 1px solid #dcdcdc; */
+    padding-bottom: 6px;
+    margin: 10px 15px;
+    border-bottom: 1px solid #dcdcdc;
+}
+section .contents > .contents__history div .history,
+section .contents > .contents__history div .price {
+    color: black;
+    font-size: 13px;
+    /* font-weight: normal; */
 }
 section .contents > .contents__history div p:not(.today_spending):not(.date) {
     /* font-size: 17px;
     color: #444444; */
 }
 section .contents > .contents__history div:first-child {
-    padding: 5px 10px;
+    padding: 5px 0px 2px;
+    border-bottom: none;
 }
 section .contents > .contents__history .date {
     color: black;
