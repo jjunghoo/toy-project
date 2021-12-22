@@ -188,7 +188,6 @@ section .contents > .up_btn_wrap {
     position: absolute;
     top: -3px;
     left: 120px;
-    /* margin-top: -15px; */
     cursor: pointer;
 }
 section .contents > .up_btn_wrap > .up_btn {
