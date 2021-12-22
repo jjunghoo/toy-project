@@ -174,6 +174,12 @@ function convert_numeric_units (number_data) {
 }
 
 
+// 랜덤 색상
+function random_color() {
+    const color_code = `#${Math.round(Math.random() * 0xffffff).toString(16)}`;
+    return color_code;
+}
+
 function start(data) {
     
     
@@ -211,6 +217,7 @@ function start(data) {
         savings_fundAmount.className = 'savings_fundAmount';
 
         savings.className = 'savings';
+        savings.style.backgroundColor = `${random_color()}`;
         //저금통 목표금액 달성률
         savings.style.width = `calc(${money_box.fundAmount} / ${target_amount} * 100%)`;
         savings.appendChild(savings_title);
@@ -295,6 +302,7 @@ function start(data) {
                 secoend_pEl.classList.remove('price');
                 fitst_pEl.className = 'sender';
                 secoend_pEl.className = 'remittance';
+                secoend_pEl.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
                 divEl.className = 'remittance_list';
             }
             // totalSum += bankLists[i]['price']; //totalSum 누적

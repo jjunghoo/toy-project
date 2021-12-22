@@ -1,4 +1,10 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+  
   /* COMMON */
+
+*:not(.material-icons) {
+    font-family: "Noto Sans KR", sans-serif !important;
+}
   .inner {
     margin: 0 auto;
     position: relative;
@@ -6,7 +12,7 @@
 p {
     color: #858585;
     font-size: 12px;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 
@@ -221,13 +227,13 @@ section .contents .contents__money-box .saving_box {
 section .contents .contents__money-box .saving_box .savings {
     /* width: 77px; */
     /* display: block; */
-    background-color: #FF5F00;
+    /* background-color: #FF5F00; */
     border-radius: 6px 0px 0px 6px;
     padding: 2px 5px;
 }
 section .contents .contents__money-box .saving_box .savings p {
     color: #fff;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 300;
     padding: 3px;
 }
@@ -271,21 +277,21 @@ section .contents > .contents__history::-webkit-scrollbar {
     display: none;
 }
 section .contents > .contents__history > ul li:not(.contents__history > ul li:last-child) {
-    margin-bottom: 25px;
+    margin-bottom: 38px;
 }
 
 section .contents > .contents__history div {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 6px;
+    padding-bottom: 10px;
     margin: 10px 15px;
     border-bottom: 1px solid #dcdcdc;
 }
 section .contents > .contents__history div .history,
 section .contents > .contents__history div .price {
     color: black;
-    font-size: 12px;
-    /* font-weight: normal; */
+    font-size: 18px;
+    font-weight: 350;
 }
 section .contents > .contents__history div p:not(.today_spending):not(.date) {
     /* font-size: 17px;
@@ -297,27 +303,33 @@ section .contents > .contents__history div:first-child {
 }
 section .contents > .contents__history .date {
     color: black;
-    font-weight: bold;
-    /* font-size: 14px; */
+    font-weight: 700;
+    font-size: 14px;
 }
-section .contents > .contents__history .date .today_spending {
-    font-weight: normal;
+section .contents > .contents__history .today_spending {
+    color: #b4b4b4;
+    font-size: 14px;
+    font-weight: 400;
 }
 section .contents > .contents__history .remittance_list .sender {
     color: black;
+    font-weight: 350;
+    font-size: 18px;
 }
 section .contents > .contents__history .remittance_list .remittance {
     color: #FF5F00;
     position: relative;
+    font-size: 18px;
+    font-weight: 300;
 }
-section .contents > .contents__history .remittance_list .remittance::before {
+/* section .contents > .contents__history .remittance_list .remittance::before {
     content: '+';
     clear: both;
     font-size: 16px;
     position: absolute;
     top: -2.5px;
     left: -12px;
-}
+} */
 
 
 
