@@ -24,7 +24,8 @@ main {
     margin: 0 auto;
     background: #EEECE5;
     display: flex;
-    overflow-x: hidden;
+    overflow: hidden;
+    height: 583px;
 }
 section {
     border: 2px solid dodgerblue;
@@ -207,17 +208,18 @@ section .contents .contents__money-box ul {
 }
 section .contents .contents__money-box ul li {
     border: 2px solid blue;
-    width: 128px;
-    margin-right: 10px;
+    width: 136px;
+    margin: 0 10px;
     flex: 0 0 auto;
 }
 section .contents .contents__money-box .saving_box {
     border: 2px solid black;
     background-color: #dadada;
     border-radius: 0px 6px 6px 0px;
+    padding-right: 8px;
 }
 section .contents .contents__money-box .saving_box .savings {
-    width: 77px;
+    /* width: 77px; */
     /* display: block; */
     background-color: #FF5F00;
     border-radius: 6px 0px 0px 6px;
@@ -261,8 +263,8 @@ section .contents .contents__money-box .add_saving_box > span {
 section .contents > .contents__history {
     border: 2px solid darkorange;
     margin-top: 5px;
-    height: 220px;
-    overflow-y: scroll;
+    height: 430px;
+    overflow: scroll;
     -ms-overflow-style: none;
 }
 section .contents > .contents__history::-webkit-scrollbar {
@@ -282,7 +284,7 @@ section .contents > .contents__history div {
 section .contents > .contents__history div .history,
 section .contents > .contents__history div .price {
     color: black;
-    font-size: 13px;
+    font-size: 12px;
     /* font-weight: normal; */
 }
 section .contents > .contents__history div p:not(.today_spending):not(.date) {
@@ -301,10 +303,21 @@ section .contents > .contents__history .date {
 section .contents > .contents__history .date .today_spending {
     font-weight: normal;
 }
+section .contents > .contents__history .remittance_list .sender {
+    color: black;
+}
 section .contents > .contents__history .remittance_list .remittance {
     color: #FF5F00;
+    position: relative;
 }
-
+section .contents > .contents__history .remittance_list .remittance::before {
+    content: '+';
+    clear: both;
+    font-size: 16px;
+    position: absolute;
+    top: -2.5px;
+    left: -12px;
+}
 
 
 
