@@ -1,80 +1,6 @@
-// contents 상하로 드래그
+// 클릭 시 위아래로 움직이는 버튼형 기능으로 수정
 const up_btn_wrap = document.querySelector('.up_btn_wrap');
 const contents = document.querySelector('.contents');
-const account = document.querySelector('.account');
-// console.log(contents);
-// let is_mouse_down = false;
-// let startY, scrollTop;
-// // let walk;
-// up_btn_wrap.addEventListener('mousedown', (e) => {
-//     is_mouse_down = true;
-//     contents.classList.add('active'); 
-
-//     startY = e.pageY - up_btn_wrap.offsetTop;
-//     scrollTop = contents.scrollTop;
-
-//     console.log(e.pageY);
-//     console.log(up_btn_wrap.offsetTop);
-//     console.log(startY);
-//     console.log(up_btn_wrap.scrollTop);
-//     console.log(scrollTop);
-// });
-
-// up_btn_wrap.addEventListener('mouseleave', () => {
-//     is_mouse_down = false;
-//     up_btn_wrap.classList.remove('active');
-// });
-
-// up_btn_wrap.addEventListener('mouseup', (e) => {
-//     // console.log(e.pageY);
-//     // if(e.pageY <= 170) {
-//     //     contents.style.transition = '1s ease';
-//     //     contents.style.top = `-210px`;
-//     //     // is_mouse_down = true;
-//     //     // up_btn_wrap.classList.remove('active');
-//     // } else {
-//     //     // contents.style.transition = '1s';
-//     //     contents.style.top = `0px`;
-        
-//     //     // up_btn_wrap.classList.remove('active');
-//     // }
-//     // contents.style.transform = `translateY(${walk}px)`;
-//     is_mouse_down = false;
-//     up_btn_wrap.classList.remove('active');
-// });
-
-// up_btn_wrap.addEventListener('mousemove', (e) => {
-//     if (!is_mouse_down) return;
-//     // if (e.pageY <= 268) MouseDown = false;
-//     console.log(e);
-//     // e.preventDefault();
-//     // const y = e.pageY - up_btn_wrap.offsetTop;
-//     // walk = (y - startY) * 1;
-//     // up_btn_wrap.scrollTop = scrollTop - walk;
-    
-
-//     // console.log('================');
-//     console.log('e.pageY = ' + e.pageY);
-//     // console.log('up_btn_wrap.offsetTop = ' + up_btn_wrap.offsetTop);
-//     // console.log('y = ' + y);
-//     // console.log('walk = ' + walk);
-//     // console.log('scrollTop = ' + scrollTop);
-//     // console.log('up_btn_wrap.scrollTop = ' + up_btn_wrap.scrollTop);
-    
-    
-//     // if(walk > 0) {
-//     //     // contents.style.transform = `translateY(${walk}px)`;
-//     //     contents.style.top = `-${0}px`;
-//     // } else {
-        
-//     // }
-//     // contents.style.transition = '1s';
-//     console.log(e.movementY);
-//     let move = e.movementY;
-//     move += -10;
-//     console.log(move);
-//     contents.style.transform = `translateY(${move}px)`;
-// });
 
 up_btn_wrap.addEventListener('click', (e) => {
     if(e.target.parentElement.classList.contains('active') !== true) {
@@ -104,7 +30,7 @@ slider.addEventListener('mousedown', (e) => {
     console.log('slider.offsetLeft = ' + slider.offsetLeft);
     console.log('e.pageX = ' + e.pageX);
     console.log('startX = ' + startX);
-    // slider.style.transition = '1s ease';
+    
     scrollLeft = slider.scrollLeft;
 
 });
@@ -127,7 +53,7 @@ slider.addEventListener('mousemove', (e) => {
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * .7;
-    // slider.style.transition = '1s';
+    
     slider.scrollLeft = scrollLeft - walk;
     console.log('slider.scrollLeft = ' + slider.scrollLeft);
 
@@ -166,17 +92,15 @@ main.addEventListener('mouseup', () => {
 
 main.addEventListener('mousemove', (e) => {
     if (!MouseDown) return;
-    // console.log(e.path)
+
     e.preventDefault();
     const x = e.pageX - main.offsetLeft;
     const walk = (x - start_x) * .7;
     
     if(e.path.includes(money_box)) {
-        // console.log(111111111);
         return;
     }
     main.scrollLeft = scroll_left - walk;
-    // console.log(main.scrollLeft);
 
     for(let i = 0; i < sections.length; i++) {
         if(main.scrollLeft > main.clientWidth / 2) {
@@ -190,10 +114,20 @@ main.addEventListener('mousemove', (e) => {
 });
 
 
+
 // JSON
-fetch('https://gyoheonlee.github.io/mobile-bank/data/bank-new.json')
-    .then( response =>  response.json() )
-    .then(obj => {start(obj)});
+let jsons_url = ['https://gyoheonlee.github.io/mobile-bank/data/bank-new.json', 'https://gyoheonlee.github.io/mobile-bank/data/bank-mother.json'];
+const sectionElems = document.getElementsByTagName('section');
+
+function json_out () {
+    jsons_url.forEach( (json_url, i) => {
+        fetch(jsons_url[i])
+            .then( response =>  response.json() )
+            .then(obj => {start(obj, sectionElems[i])} )
+    });
+}
+
+json_out();
 
 
 // 숫자 자릿수 변환
@@ -211,24 +145,22 @@ function random_color() {
     return color_code;
 }
 
-function start(data) {
-    
-    
-    console.log(data);
+function start(data, sectionElem) {
+
 
     // 계좌 정보
     console.log(data.accountId);
-    const account_id = document.querySelector('.account_id');
+    const account_id = sectionElem.querySelector('.account_id');
     account_id.innerHTML = `${data.accountId}`;
     
-    const account_number = document.querySelector('.account_number');
+    const account_number = sectionElem.querySelector('.account_number');
     account_number.innerHTML = `${data.accountNumber}`;
     
-    const deposit = document.querySelector('.deposit');
+    const deposit = sectionElem.querySelector('.deposit');
     deposit.innerHTML = `${convert_numeric_units(data.deposit)}원`;
 
     // 저금통 목록 출력
-    const moneyBox = document.querySelector('.contents__money-box ul');
+    const moneyBox = sectionElem.querySelector('.contents__money-box ul');
     console.log(moneyBox);
     console.log(data.moneyBox);
     data.moneyBox.reverse().forEach(money_box => {
@@ -262,7 +194,7 @@ function start(data) {
 
 
     // 소비 내역 출력
-    const ulEl = document.querySelector('.contents__history > ul');
+    const ulEl = sectionElem.querySelector('.contents__history > ul');
     const bankLists = data.bankList.reverse();
     let totalSum = 0;
     let listIndex = 0;
@@ -278,6 +210,8 @@ function start(data) {
         const fourth_pEl = document.createElement('p');
         const fifth_pEl = document.createElement('p');
 
+        const sectionEl_li = sectionElem.querySelector('.contents__history ul li');
+        console.log(sectionEl_li)
         // 날짜가 틀리면 새로운 LIST 생성
         if(i === 0 || bankLists[i - 1]['date'] !== bankLists[i]['date']) {
             // totalSum 0부터 다시 누적
@@ -309,6 +243,7 @@ function start(data) {
                 fourth_pEl.classList.remove('price');
                 third_pEl.className = 'sender';
                 fourth_pEl.className = 'remittance';
+                fourth_pEl.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
             }
 
             divEl2.appendChild(third_pEl);
@@ -320,7 +255,7 @@ function start(data) {
             ulEl.appendChild(liEl);
             listIndex += 1;
         } else {
-            const nextLiEl = document.querySelector(`.contents__history > ul li:nth-child(${listIndex})`);
+            const nextLiEl = sectionElem.querySelector(`.contents__history > ul li:nth-child(${listIndex})`);
             fitst_pEl.innerHTML = bankLists[i]['history'];
             secoend_pEl.innerHTML = convert_numeric_units(bankLists[i]['price']);
             
@@ -345,4 +280,19 @@ function start(data) {
             nextLiEl.childNodes[0].children[1].innerHTML = `${convert_numeric_units(totalSum)}원 지출`;
         }
     }
+
+        // 저금통 만들기
+        const add_saving_btn = sectionElem.querySelector('.add_saving_box');
+        const create_savings_box = sectionElem.querySelector('.create_savings_box');
+        add_saving_btn.addEventListener('click', (e) => {
+            create_savings_box.style.transition = '1s ease';
+            create_savings_box.style.transform = 'translateY(-532px)';
+        });
+    
+        const cancel_saving_box = sectionElem.querySelector('.cancel');
+        console.log(cancel_saving_box);
+        cancel_saving_box.addEventListener('click', () => {
+            create_savings_box.style.transition = '1s';
+            create_savings_box.style.transform = 'translateY(-210px)';
+        })
 }

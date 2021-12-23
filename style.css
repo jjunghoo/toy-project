@@ -332,6 +332,64 @@ section .contents > .contents__history .remittance_list .remittance {
 
 
 
+/* Create savingsbox */
+main .create_savings_box {
+    width: 375px;
+    height: 321px;
+    background-color: #ffffffff;
+    box-shadow: 0px -5px 14px rgb(189 144 28 / 8%);
+    border-radius: 30px 30px 0px 0px;
+    /* position: absolute; */
+    /* bottom: 151px; */
+    /* left: 3px; */
+    transition: 1s ease;
+    transform: translateY(-210px);
+    /* transform: translateY(-532px); */
+    /* opacity: 0; */
+    /* display: none; */
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+}
+
+main .create_savings_box .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .create_savings_box .inner input {
+    border: 2px solid darkorange;
+    /* border: 0; */
+    outline: none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 8px 0px 8px 10px;
+    margin: 18px 0;
+}
+main .create_savings_box .inner input:last-child {
+    margin-bottom: 42px;
+}
+main .create_savings_box .inner .check {
+    /* border: 1px solid black; */
+    padding: 5px;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+main .create_savings_box .inner .check .add, 
+main .create_savings_box .inner .check .cancel {
+    font-size: 38px;
+    font-weight: bold;
+    padding: 10px;
+}
+main .create_savings_box .inner .check .add {
+    color: rgb(26 234 26);
+}
+main .create_savings_box .inner .check .cancel {
+    color: red;
+}
+
 
 
 /* NAV */
