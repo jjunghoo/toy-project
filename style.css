@@ -12,7 +12,6 @@
 p {
     color: #858585;
     font-size: 12px;
-    /* font-weight: bold; */
 }
 
 
@@ -86,20 +85,14 @@ section .account__main > .account__main__status_board {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     padding: 14px 0 6px;
     border-radius: 12px;
-}
-section .account__main > .account__main__status_board p {
-    /* color: #858585; */
-    /* font-weight: bold; */
 }
 section .account__main > .account__main__status_board 
 .account__main__account_balance {
     font-size: 22px;
     font-weight: bold;
-    /* display: inline-block; */
     margin: 20px 0 25px 0;    
 }
 section .account__main > .account__main__status_board
@@ -205,8 +198,6 @@ section .contents .contents__money-box {
 section .contents .contents__money-box ul {
     border: 2px solid purple;
     display: flex;
-    /* cursor: grab; */
-    /* justify-content: center; */
     align-items: center;
     overflow-x: hidden;
     
@@ -224,9 +215,6 @@ section .contents .contents__money-box .saving_box {
     padding-right: 8px;
 }
 section .contents .contents__money-box .saving_box .savings {
-    /* width: 77px; */
-    /* display: block; */
-    /* background-color: #FF5F00; */
     border-radius: 6px 0px 0px 6px;
     padding: 2px 5px;
 }
@@ -321,32 +309,19 @@ section .contents > .contents__history .remittance_list .remittance {
     font-size: 18px;
     font-weight: 300;
 }
-/* section .contents > .contents__history .remittance_list .remittance::before {
-    content: '+';
-    clear: both;
-    font-size: 16px;
-    position: absolute;
-    top: -2.5px;
-    left: -12px;
-} */
+
 
 
 
 /* Create savingsbox */
 main .create_savings_box {
-    width: 375px;
+    width: 370px;
     height: 321px;
     background-color: #ffffffff;
     box-shadow: 0px -5px 14px rgb(189 144 28 / 8%);
     border-radius: 30px 30px 0px 0px;
-    /* position: absolute; */
-    /* bottom: 151px; */
-    /* left: 3px; */
     transition: 1s ease;
     transform: translateY(-210px);
-    /* transform: translateY(-532px); */
-    /* opacity: 0; */
-    /* display: none; */
     display: flex;
     align-items: center;
     align-content: flex-start;
@@ -365,13 +340,13 @@ main .create_savings_box .inner input {
     border-radius: 5px;
     font-size: 20px;
     padding: 8px 0px 8px 10px;
-    margin: 18px 0;
+    margin: 9px 0;
 }
 main .create_savings_box .inner input:last-child {
     margin-bottom: 42px;
 }
 main .create_savings_box .inner .check {
-    /* border: 1px solid black; */
+    margin-top: 10px;
     padding: 5px;
     width: 200px;
     display: flex;

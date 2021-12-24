@@ -101,7 +101,7 @@ main.addEventListener('mousemove', (e) => {
         return;
     }
     main.scrollLeft = scroll_left - walk;
-
+    
     for(let i = 0; i < sections.length; i++) {
         if(main.scrollLeft > main.clientWidth / 2) {
             sections[i].style.transition = '1s';
@@ -116,7 +116,7 @@ main.addEventListener('mousemove', (e) => {
 
 
 // JSON
-let jsons_url = ['https://gyoheonlee.github.io/mobile-bank/data/bank-new.json', 'https://gyoheonlee.github.io/mobile-bank/data/bank-mother.json'];
+let jsons_url = ['https://gyoheonlee.github.io/mobile-bank/data/bank-me.json', 'https://gyoheonlee.github.io/mobile-bank/data/bank-mom.json'];
 const sectionElems = document.getElementsByTagName('section');
 
 function json_out () {
@@ -124,6 +124,7 @@ function json_out () {
         fetch(jsons_url[i])
             .then( response =>  response.json() )
             .then(obj => {start(obj, sectionElems[i])} )
+            
     });
 }
 
@@ -211,7 +212,6 @@ function start(data, sectionElem) {
         const fifth_pEl = document.createElement('p');
 
         const sectionEl_li = sectionElem.querySelector('.contents__history ul li');
-        console.log(sectionEl_li)
         // 날짜가 틀리면 새로운 LIST 생성
         if(i === 0 || bankLists[i - 1]['date'] !== bankLists[i]['date']) {
             // totalSum 0부터 다시 누적
@@ -271,7 +271,7 @@ function start(data, sectionElem) {
                 secoend_pEl.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
                 divEl.className = 'remittance_list';
             }
-            // totalSum += bankLists[i]['price']; //totalSum 누적
+            
             divEl.appendChild(fitst_pEl);
             divEl.appendChild(secoend_pEl);
             nextLiEl.appendChild(divEl);
@@ -284,15 +284,76 @@ function start(data, sectionElem) {
         // 저금통 만들기
         const add_saving_btn = sectionElem.querySelector('.add_saving_box');
         const create_savings_box = sectionElem.querySelector('.create_savings_box');
+        const cancel_saving_box = sectionElem.querySelector('.cancel');
+        const add_savings_box = sectionElem.querySelector('.add');
+        
+        const savings_box_title = sectionElem.querySelector('.savings_box_title');
+        const savings_box_target_amount = sectionElem.querySelector('.savings_box_target_amount');
+        const savings_box_fund_amount = sectionElem.querySelector('.savings_box_fund_amount');
+        console.log(savings_box_fund_amount);
+
         add_saving_btn.addEventListener('click', (e) => {
             create_savings_box.style.transition = '1s ease';
             create_savings_box.style.transform = 'translateY(-532px)';
         });
     
-        const cancel_saving_box = sectionElem.querySelector('.cancel');
-        console.log(cancel_saving_box);
+        
         cancel_saving_box.addEventListener('click', () => {
+            console.log(cancel_saving_box);
             create_savings_box.style.transition = '1s';
             create_savings_box.style.transform = 'translateY(-210px)';
-        })
+            savings_box_title.value = '';
+            savings_box_target_amount.value = '';
+        });
+
+
+
+        
+        // 저금통 확인 버튼을 클릭할 때
+        add_savings_box.addEventListener('click', () => {
+            console.log(savings_box_title.value);
+            console.log(savings_box_target_amount.value);
+            console.log(add_saving_btn);
+
+            const new_list = document.createElement('li');
+            const new_saving_box = document.createElement('div');
+            const new_savings = document.createElement('div');
+            const new_savings_title = document.createElement('p');
+            const new_savings_fund_amount = document.createElement('p');
+            
+
+            new_savings_title.className = 'savings_title';
+            new_savings_fund_amount.className = 'savings_fundAmount';
+            new_savings.className = 'savings';
+            new_saving_box.className = 'saving_box';
+
+
+            new_savings_title.innerHTML = savings_box_title.value;
+            new_savings_fund_amount.innerHTML = convert_numeric_units(savings_box_target_amount.value);
+        
+
+            new_savings.appendChild(new_savings_title);
+            new_savings.appendChild(new_savings_fund_amount);
+            new_savings.style.width = `calc(${savings_box_fund_amount.value} / ${savings_box_target_amount.value} * 100%)`;
+            new_savings.style.backgroundColor = `${random_color()}`;
+
+
+            new_saving_box.appendChild(new_savings);
+
+            new_list.appendChild(new_saving_box);
+            moneyBox.prepend(new_list);
+
+            create_savings_box.style.transition = '1s';
+            create_savings_box.style.transform = 'translateY(-210px)';
+
+            // 추가된 저금통 위치로 슬라이더 이동           
+            slider.scrollLeft = add_saving_btn.pageX;
+
+
+        });
+
+        // 저금통 만들 때 좌우 화면 슬라이드 안되게 방지
+        create_savings_box.addEventListener('mousemove', () => {
+            MouseDown = false;
+        });
 }
