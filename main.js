@@ -294,16 +294,17 @@ function start(data, sectionElem) {
 
         add_saving_btn.addEventListener('click', (e) => {
             create_savings_box.style.transition = '1s ease';
-            create_savings_box.style.transform = 'translateY(-532px)';
+            create_savings_box.style.transform = 'translateY(-576px)';
         });
     
         
         cancel_saving_box.addEventListener('click', () => {
             console.log(cancel_saving_box);
             create_savings_box.style.transition = '1s';
-            create_savings_box.style.transform = 'translateY(-210px)';
+            create_savings_box.style.transform = 'translateY(-165px)';
             savings_box_title.value = '';
             savings_box_target_amount.value = '';
+            savings_box_fund_amount = '';
         });
 
 
@@ -344,7 +345,7 @@ function start(data, sectionElem) {
             moneyBox.prepend(new_list);
 
             create_savings_box.style.transition = '1s';
-            create_savings_box.style.transform = 'translateY(-210px)';
+            create_savings_box.style.transform = 'translateY(-165px)';
 
             // 추가된 저금통 위치로 슬라이더 이동           
             slider.scrollLeft = add_saving_btn.pageX;

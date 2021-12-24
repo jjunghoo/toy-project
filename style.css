@@ -18,7 +18,7 @@ p {
 
 body {
     width: 375px;
-    border: 2px solid green;
+    /* border: 2px solid green; */
     -ms-user-select: none; 
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
@@ -30,18 +30,20 @@ main {
     background: #EEECE5;
     display: flex;
     overflow: hidden;
-    height: 583px;
+    height: 661px;
 }
 section {
-    border: 2px solid dodgerblue;
-    width: 371px;
+    /* border: 2px solid dodgerblue; */
+    width: 375px;
+    margin-right: 4px;
 }
 section .account {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     padding: 2px 20px;
+    margin: 32px 0;
 }
 section .account > .account__header {
-    border: 2px solid darkorange;
+    /* border: 2px solid darkorange; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +56,7 @@ section .account > .account__header > h3 {
     margin-left: 12px;
 }
 section .account > .account__header > .icons {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,18 +77,18 @@ section .account > .account__header > .icons > .easy_payment_wrap::after {
     left: 2px;
 }
 section .account__main {
-    border: 2px solid darkorange;
+    /* border: 2px solid darkorange; */
     padding: 10px 20px;
     margin-top: 15px;
 }
 section .account__main > .account__main__status_board {
     width: 259px;  
-    border: 2px solid black;
+    /* border: 2px solid black; */
     background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 14px 0 6px;
+    padding: 14px 10px 6px;
     border-radius: 12px;
 }
 section .account__main > .account__main__status_board 
@@ -151,14 +153,14 @@ section .account__main > .account__main__status_board .graph {
 }
 
 section .account > .account__ad {
-    border: 2px solid darkorange;
+    /* border: 2px solid darkorange; */
     margin-top: 5px;
     font-size: 12px;
     font-weight: bold;
     padding: 5px 0;
 }
 section .account > .account__ad li {
-    margin-left: 30px;
+    margin-left: 35px;
 }
 section .account > .account__ad .ad_move {
     color: black;
@@ -166,15 +168,16 @@ section .account > .account__ad .ad_move {
     text-align: center;
 }
 section .contents {
-    border: 2px solid #f5f5f5;
+    /* border: 2px solid #f5f5f5; */
     background-color: #f5f5f5;
     box-shadow: 0px -5px 14px rgba(189, 144, 28, 0.08);
     border-radius: 30px 30px 0px 0px;
     padding: 24px 20px 10px;
     position: relative;
+    margin-top: 17px;
 }
 section .contents > .up_btn_wrap {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 100px;
     margin: auto;
     padding: 7px 10px;
@@ -193,23 +196,23 @@ section .contents > .up_btn_wrap > .up_btn {
     background-color: #c4c4c4;
 }
 section .contents .contents__money-box {
-    border: 2px solid darkorange;
+    /* border: 2px solid darkorange; */
 }
 section .contents .contents__money-box ul {
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     display: flex;
     align-items: center;
     overflow-x: hidden;
-    
+    margin-top: 5px;
 }
 section .contents .contents__money-box ul li {
-    border: 2px solid blue;
-    width: 136px;
+    /* border: 2px solid blue; */
+    width: 143px;
     margin: 0 10px;
     flex: 0 0 auto;
 }
 section .contents .contents__money-box .saving_box {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     background-color: #dadada;
     border-radius: 0px 6px 6px 0px;
     padding-right: 8px;
@@ -254,9 +257,9 @@ section .contents .contents__money-box .add_saving_box > span {
 }
 
 section .contents > .contents__history {
-    border: 2px solid darkorange;
+    /* border: 2px solid darkorange; */
     margin-top: 5px;
-    height: 430px;
+    height: 490px;
     overflow: scroll;
     -ms-overflow-style: none;
 }
@@ -315,13 +318,13 @@ section .contents > .contents__history .remittance_list .remittance {
 
 /* Create savingsbox */
 main .create_savings_box {
-    width: 370px;
-    height: 321px;
+    width: 376px;
+    height: 360px;
     background-color: #ffffffff;
     box-shadow: 0px -5px 14px rgb(189 144 28 / 8%);
     border-radius: 30px 30px 0px 0px;
     transition: 1s ease;
-    transform: translateY(-210px);
+    transform: translateY(-165px);
     display: flex;
     align-items: center;
     align-content: flex-start;
