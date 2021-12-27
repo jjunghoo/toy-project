@@ -214,7 +214,7 @@ section .contents .contents__money-box ul li {
 section .contents .contents__money-box .saving_box {
     /* border: 2px solid black; */
     background-color: #dadada;
-    border-radius: 0px 6px 6px 0px;
+    border-radius: 6px;
     padding-right: 8px;
 }
 section .contents .contents__money-box .saving_box .savings {
@@ -226,6 +226,7 @@ section .contents .contents__money-box .saving_box .savings p {
     font-size: 12px;
     font-weight: 300;
     padding: 3px;
+    width: max-content;
 }
 section .contents .contents__money-box .add_saving_box {
     display: flex;
