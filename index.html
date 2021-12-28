@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Junghoo Park">
+    <meta name="description" content="Convenient mobile banking for users">
+    <link rel="shortcut icon" href="images\favicon.ico">
+    <meta property="og:image" content="images\mobile_banking_og_image.jpg">
+    <meta property="og:description" content="Convenient mobile banking for users">
+    <meta property="og:title" content="Mobile banking">
+    
     <title>Mobile banking</title>
     
+
     <!-- Reset CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
@@ -17,221 +25,142 @@
     
 
     <link rel="stylesheet" href="style.css">
-    <!-- <script defer src="/main.js"></script> -->
+   
     <script defer src="/main.js"></script>
 </head>
 <body>
     <main>
-        
-        <!-- fitsr section-->
-            <section id="my_bank">
-
-                <div class="account">
-                    <header class="account__header">
-                        <img src="/images/아바타.png" alt="프로필 사진">
-                        <h3 class="account_id"></h3>
-                        <div class="icons">
-                            <div class="easy_payment_wrap">
-                                <img src="/images/easy_payment.png" alt="결제 아이콘">
+    <!-- fitsr section-->
+        <section id="my_bank">
+            <div class="account">
+                <header class="account__header">
+                    <img src="/images/아바타.png" alt="프로필 사진">
+                    <h3 class="account_id"></h3>
+                    <div class="icons">
+                        <div class="easy_payment_wrap">
+                            <img src="/images/easy_payment.png" alt="결제 아이콘">
+                        </div>
+                        <img src="/images/search.png" alt="검색 아이콘">
+                    </div>
+                </header>
+                <div class="account__main">
+                    <div class="account__main__status_board inner">
+                        <p class="account_number"></p>
+                        <span class="account__main__account_balance deposit"></span>
+                        <div class="account__main__account_check">
+                            <div class="total_limit">
+                                <div class="usage_limit"></div>
                             </div>
-                            <img src="/images/search.png" alt="검색 아이콘">
-                        </div>
-                    </header>
-                    
-
-                    <div class="account__main">
-                        <div class="account__main__status_board inner">
-                            <p class="account_number"></p>
-                            <span class="account__main__account_balance deposit"></span>
-                            <div class="account__main__account_check">
-                                <div class="total_limit">
-                                    <div class="usage_limit"></div>
-                                </div>
-                                <div class="limit_line_wrap">
-                                    <div class="limit_line"></div>
-                                </div>
+                            <div class="limit_line_wrap">
+                                <div class="limit_line"></div>
                             </div>
-                            <p>5일 동안 210,000원 남음</p>
-                            <a href="#" class="remittance">이체</a>
-                            <a href="#" class="graph"><img src="/images/graph.png" alt="그래프 이미지"></a>
                         </div>
+                        <p>5일 동안 210,000원 남음</p>
+                        <a href="#" class="remittance">이체</a>
+                        <a href="#" class="graph"><img src="/images/graph.png" alt="그래프 이미지"></a>
                     </div>
-
-
-                    <ul class="account__ad">
-                        <li>지금 낮은 이자로 100만원을 신청하세요!<a href="" class="ad_move">Go</a></li>
-                    </ul>
-
                 </div>
-
-
-
-                <div class="contents">
-                    
-                    <div class="up_btn_wrap">
-                        <div class="up_btn"></div>
-                    </div>
-                    
-
-                    <div class="contents__money-box">
-                        <ul>
-                            <li class="add_saving_box">
-                                <div class="plus_wrap">
-                                    <span class="material-icons">add</span>
-                                </div>
-                                <span>저금통 만들기</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    
-                    <ul class="contents__history">                    
-                        <ul>
-    
-                        </ul>
-                    </ul>
-                </div>
-
-                
-                <!-- Create savingsbox -->
-                <div class="create_savings_box">
-                    
-                    <div class="inner">
-                        
-                        <input type="text" class="savings_box_title" placeholder="저금통 이름을 입력해주세요" />
-                        <input type="text" class="savings_box_target_amount" placeholder="목표 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                        <input type="text" class="savings_box_fund_amount" placeholder="저금할 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                        <div class="check">
-                            <div class="add material-icons">done</div>
-                            <div class="cancel material-icons">close</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-
-
-            </section>
-
-
-            <!-- second section -->
-            <section id="mother_bank">
-
-                <div class="account">
-                    <header class="account__header">
-                        <img src="/images/아바타2.png" alt="프로필 사진">
-                        <h3 class="account_id"></h3>
-                        <div class="icons">
-                            <div class="easy_payment_wrap">
-                                <img src="/images/easy_payment.png" alt="결제 아이콘">
-                            </div>
-                            <img src="/images/search.png" alt="검색 아이콘">
-                        </div>
-                    </header>
-
-
-                    <div class="account__main">
-                        <div class="account__main__status_board inner">
-                            <p class="account_number"></p>
-                            <span class="account__main__account_balance deposit"></span>
-                            <div class="account__main__account_check">
-                                <div class="total_limit">
-                                    <div class="usage_limit"></div>
-                                </div>
-                                <div class="limit_line_wrap">
-                                    <div class="limit_line"></div>
-                                </div>
-                            </div>
-                            <p>5일 동안 210,000원 남음</p>
-                            <a href="#" class="remittance">이체</a>
-                            <a href="#" class="graph"><img src="/images/graph.png" alt="그래프 이미지"></a>
-                        </div>
-                    </div>
-
-
-                    <ul class="account__ad">
-                        <li>지금 낮은 이자로 100만원을 신청하세요!<a href="" class="ad_move">Go</a></li>
-                    </ul>
-
-                </div>
-
-
-
-                <div class="contents">
-                    
-                    <div class="up_btn_wrap">
-                        <div class="up_btn"></div>
-                    </div>
-                    
-
-                    <div class="contents__money-box">
-                        <ul>
-                            <li class="add_saving_box">
-                                <div class="plus_wrap">
-                                    <span class="material-icons">add</span>
-                                </div>
-                                <span>저금통 만들기</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    
-                    <ul class="contents__history">                    
-                        <ul>
-    
-                        </ul>
-                    </ul>
-
-                </div>
-
-
-                <!-- Create savingsbox -->
-                <div class="create_savings_box">
-                    
-                    <div class="inner">
-                        
-                        <input type="text" class="savings_box_title" placeholder="저금통 이름을 입력해주세요" />
-                        <input type="text" class="savings_box_target_amount" placeholder="목표 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                        <input type="text" class="savings_box_fund_amount" placeholder="저금할 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                        <div class="check">
-                            <div class="add material-icons">done</div>
-                            <div class="cancel material-icons">close</div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-
-
-            </section>
-            
-            
-            
-
-            
-
-        <!-- <section>
-
-            <div class="option">
-                <div class="option__controller"></div>
+                <ul class="account__ad">
+                    <li>지금 낮은 이자로 100만원을 신청하세요!<a href="" class="ad_move">Go</a></li>
+                </ul>
             </div>
-
-            <div class="reports">
-                <div class="reports__chart"></div>
-
-                <div class="report__graph"></div>
+            <div class="contents">        
+                <div class="up_btn_wrap">
+                    <div class="up_btn"></div>
+                </div>
+                <div class="contents__money-box">
+                    <ul>
+                        <li class="add_saving_box">
+                            <div class="plus_wrap">
+                                <span class="material-icons">add</span>
+                            </div>
+                            <span>저금통 만들기</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="contents__history">                    
+                    <ul></ul>
+                </ul>
             </div>
-
-        </section> -->
-
-
-
-
-        
-
-        
+            <!-- Create savingsbox -->
+            <div class="create_savings_box">  
+                <div class="inner">
+                    <input type="text" class="savings_box_title" placeholder="저금통 이름을 입력해주세요" />
+                    <input type="text" class="savings_box_target_amount" placeholder="목표 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <input type="text" class="savings_box_fund_amount" placeholder="저금할 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div class="check">
+                        <div class="add material-icons">done</div>
+                        <div class="cancel material-icons">close</div>
+                    </div>     
+                </div>
+            </div>
+        </section>
+        <!-- second section -->
+        <section id="mother_bank">
+            <div class="account">
+                <header class="account__header">
+                    <img src="/images/아바타2.png" alt="프로필 사진">
+                    <h3 class="account_id"></h3>
+                    <div class="icons">
+                        <div class="easy_payment_wrap">
+                            <img src="/images/easy_payment.png" alt="결제 아이콘">
+                        </div>
+                        <img src="/images/search.png" alt="검색 아이콘">
+                    </div>
+                </header>
+                <div class="account__main">
+                    <div class="account__main__status_board inner">
+                        <p class="account_number"></p>
+                        <span class="account__main__account_balance deposit"></span>
+                        <div class="account__main__account_check">
+                            <div class="total_limit">
+                                <div class="usage_limit"></div>
+                            </div>
+                            <div class="limit_line_wrap">
+                                <div class="limit_line"></div>
+                            </div>
+                        </div>
+                        <p>5일 동안 210,000원 남음</p>
+                        <a href="#" class="remittance">이체</a>
+                        <a href="#" class="graph"><img src="/images/graph.png" alt="그래프 이미지"></a>
+                    </div>
+                </div>
+                <ul class="account__ad">
+                    <li>지금 낮은 이자로 100만원을 신청하세요!<a href="" class="ad_move">Go</a></li>
+                </ul>
+            </div>
+            <div class="contents">   
+                <div class="up_btn_wrap">
+                    <div class="up_btn"></div>
+                </div>
+                <div class="contents__money-box">
+                    <ul>
+                        <li class="add_saving_box">
+                            <div class="plus_wrap">
+                                <span class="material-icons">add</span>
+                            </div>
+                            <span>저금통 만들기</span>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="contents__history">                    
+                    <ul></ul>
+                </ul>
+            </div>
+            <!-- Create savingsbox -->
+            <div class="create_savings_box">
+                <div class="inner">
+                    <input type="text" class="savings_box_title" placeholder="저금통 이름을 입력해주세요" />
+                    <input type="text" class="savings_box_target_amount" placeholder="목표 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <input type="text" class="savings_box_fund_amount" placeholder="저금할 금액을 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                    <div class="check">
+                        <div class="add material-icons">done</div>
+                        <div class="cancel material-icons">close</div>
+                    </div>
+                </div>
+            </div>
+        </section>        
     </main>
-
     <!-- NAV -->
     <nav>
         <div class="home">
