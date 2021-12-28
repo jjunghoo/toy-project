@@ -1,8 +1,8 @@
 // 클릭 시 위아래로 움직이는 버튼형 기능으로 수정
-const up_btn_wrap = document.querySelector('.up_btn_wrap');
+const upBtnWrap = document.querySelector('.up_btn_wrap');
 const contents = document.querySelector('.contents');
 
-up_btn_wrap.addEventListener('click', (e) => {
+upBtnWrap.addEventListener('click', (e) => {
     if(e.target.parentElement.classList.contains('active') !== true) {
         contents.classList.add('active');
         contents.style.transition = '1s';
@@ -16,23 +16,16 @@ up_btn_wrap.addEventListener('click', (e) => {
 
 
 // 저금통 좌우 슬라이드
-const slider_wrap = document.querySelector('.contents__money-box');
+const sliderWrap = document.querySelector('.contents__money-box');
 const slider = document.querySelector('.contents__money-box ul');
-console.log(slider)
 let isMouseDown = false;
 let startX, scrollLeft;
 
 slider.addEventListener('mousedown', (e) => {
     isMouseDown = true;
     slider.classList.add('active'); 
-
     startX = e.pageX - slider.offsetLeft;
-    console.log('slider.offsetLeft = ' + slider.offsetLeft);
-    console.log('e.pageX = ' + e.pageX);
-    console.log('startX = ' + startX);
-    
     scrollLeft = slider.scrollLeft;
-
 });
 
 slider.addEventListener('mouseleave', () => {
@@ -55,8 +48,6 @@ slider.addEventListener('mousemove', (e) => {
     const walk = (x - startX) * .7;
     
     slider.scrollLeft = scrollLeft - walk;
-    console.log('slider.scrollLeft = ' + slider.scrollLeft);
-
 });
 
 
@@ -65,19 +56,15 @@ slider.addEventListener('mousemove', (e) => {
 // 화면 좌우 슬라이드
 const main = document.querySelector('main');
 const sections = document.querySelectorAll('section');
-console.log(sections);
-const money_box = document.querySelector('.contents__money-box');
-console.log(main)
+const moneyBox = document.querySelector('.contents__money-box');
 let MouseDown = false;
 let start_x, scroll_left;
 
 main.addEventListener('mousedown', (e) => {
     MouseDown = true;
     main.classList.add('active'); 
-
     start_x = e.pageX - main.offsetLeft;
     scroll_left = main.scrollLeft;
-
 });
 
 main.addEventListener('mouseleave', () => {
@@ -97,7 +84,7 @@ main.addEventListener('mousemove', (e) => {
     const x = e.pageX - main.offsetLeft;
     const walk = (x - start_x) * .7;
     
-    if(e.path.includes(money_box)) {
+    if(e.path.includes(moneyBox)) {
         return;
     }
     main.scrollLeft = scroll_left - walk;
@@ -116,12 +103,12 @@ main.addEventListener('mousemove', (e) => {
 
 
 // JSON
-let jsons_url = ['https://gyoheonlee.github.io/mobile-bank/data/bank-me.json', 'https://gyoheonlee.github.io/mobile-bank/data/bank-mom.json'];
 const sectionElems = document.getElementsByTagName('section');
+let jsonsUrl = ['https://gyoheonlee.github.io/mobile-bank/data/bank-me.json', 'https://gyoheonlee.github.io/mobile-bank/data/bank-mom.json'];
 
 function json_out () {
-    jsons_url.forEach( (json_url, i) => {
-        fetch(jsons_url[i])
+    jsonsUrl.forEach( (json_url, i) => {
+        fetch(jsonsUrl[i])
             .then( response =>  response.json() )
             .then(obj => {start(obj, sectionElems[i])} )
             
@@ -132,8 +119,8 @@ json_out();
 
 
 // 숫자 자릿수 변환
-function convert_numeric_units (number_data) {
-    const num = number_data;
+function convert_numeric_units (numberData) {
+    const num = numberData;
     const change_num = num.toString()
       .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     return change_num;
@@ -142,54 +129,51 @@ function convert_numeric_units (number_data) {
 
 // 랜덤 색상
 function random_color() {
-    const color_code = `#${Math.round(Math.random() * 0xffffff).toString(16)}`;
-    return color_code;
+    const colorCode = `#${Math.round(Math.random() * 0xffffff).toString(16)}`;
+    return colorCode;
 }
 
 function start(data, sectionElem) {
 
 
     // 계좌 정보
-    console.log(data.accountId);
-    const account_id = sectionElem.querySelector('.account_id');
-    account_id.innerHTML = `${data.accountId}`;
+    const accountId = sectionElem.querySelector('.account_id');
+    accountId.innerHTML = `${data.accountId}`;
     
-    const account_number = sectionElem.querySelector('.account_number');
-    account_number.innerHTML = `${data.accountNumber}`;
+    const accountNumber = sectionElem.querySelector('.account_number');
+    accountNumber.innerHTML = `${data.accountNumber}`;
     
     const deposit = sectionElem.querySelector('.deposit');
     deposit.innerHTML = `${convert_numeric_units(data.deposit)}원`;
 
     // 저금통 목록 출력
     const moneyBox = sectionElem.querySelector('.contents__money-box ul');
-    console.log(moneyBox);
-    console.log(data.moneyBox);
-    data.moneyBox.reverse().forEach(money_box => {
+    data.moneyBox.reverse().forEach(moneyBox => {
         const liEl = document.createElement('li');
-        const saving_box = document.createElement('div');
+        const savingBox = document.createElement('div');
         const savings = document.createElement('div');
-        const savings_title = document.createElement('p');
-        const savings_fundAmount = document.createElement('p');
-        const target_amount = money_box.targetAmount;
+        const savingsTitle = document.createElement('p');
+        const savingsFundAmount = document.createElement('p');
+        const targetAmount = moneyBox.targetAmount;
 
-        savings_title.innerHTML = `${money_box.title}`;
-        savings_title.className = 'savings_title';
+        savingsTitle.innerHTML = `${moneyBox.title}`;
+        savingsTitle.className = 'savings_title';
         
         
         
-        savings_fundAmount.innerHTML = convert_numeric_units(money_box.fundAmount);
-        savings_fundAmount.className = 'savings_fundAmount';
+        savingsFundAmount.innerHTML = convert_numeric_units(moneyBox.fundAmount);
+        savingsFundAmount.className = 'savings_fundAmount';
 
         savings.className = 'savings';
         savings.style.backgroundColor = `${random_color()}`;
         //저금통 목표금액 달성률
-        savings.style.width = `calc(${money_box.fundAmount} / ${target_amount} * 100%)`;
-        savings.appendChild(savings_title);
-        savings.appendChild(savings_fundAmount);
+        savings.style.width = `calc(${moneyBox.fundAmount} / ${targetAmount} * 100%)`;
+        savings.appendChild(savingsTitle);
+        savings.appendChild(savingsFundAmount);
 
-        saving_box.className = 'saving_box';
-        saving_box.appendChild(savings);
-        liEl.appendChild(saving_box);
+        savingBox.className = 'saving_box';
+        savingBox.appendChild(savings);
+        liEl.appendChild(savingBox);
         moneyBox.prepend(liEl);
     });
 
@@ -205,13 +189,11 @@ function start(data, sectionElem) {
         const liEl = document.createElement('li');
         const divEl = document.createElement('div');
         const divEl2 = document.createElement('div');
-        const fitst_pEl = document.createElement('p');
-        const secoend_pEl = document.createElement('p');
-        const third_pEl = document.createElement('p');
-        const fourth_pEl = document.createElement('p');
-        const fifth_pEl = document.createElement('p');
+        const pEl1 = document.createElement('p');
+        const pEl2 = document.createElement('p');
+        const pEl3 = document.createElement('p');
+        const pEl4 = document.createElement('p');
 
-        const sectionEl_li = sectionElem.querySelector('.contents__history ul li');
         // 날짜가 틀리면 새로운 LIST 생성
         if(i === 0 || bankLists[i - 1]['date'] !== bankLists[i]['date']) {
             // totalSum 0부터 다시 누적
@@ -222,32 +204,32 @@ function start(data, sectionElem) {
                 divEl2.className = 'remittance_list'
             }
 
-            fitst_pEl.innerHTML = bankLists[i]['date'];
-            fitst_pEl.className = 'date';
-            secoend_pEl.innerHTML = `${totalSum} 원 지출`;
-            secoend_pEl.className = 'today_spending';
+            pEl1.innerHTML = bankLists[i]['date'];
+            pEl1.className = 'date';
+            pEl2.innerHTML = `${totalSum} 원 지출`;
+            pEl2.className = 'today_spending';
 
-            divEl.appendChild(fitst_pEl);
-            divEl.appendChild(secoend_pEl);
+            divEl.appendChild(pEl1);
+            divEl.appendChild(pEl2);
             divEl.className = 'payment_today';
 
-            third_pEl.innerHTML = bankLists[i]['history'];
-            fourth_pEl.innerHTML = convert_numeric_units(bankLists[i]['price']);
+            pEl3.innerHTML = bankLists[i]['history'];
+            pEl4.innerHTML = convert_numeric_units(bankLists[i]['price']);
             
 
             if(bankLists[i]['income'] === 'out') {
-                third_pEl.className = 'history';
-                fourth_pEl.className = 'price';
+                pEl3.className = 'history';
+                pEl4.className = 'price';
             } else {
-                third_pEl.classList.remove('history');
-                fourth_pEl.classList.remove('price');
-                third_pEl.className = 'sender';
-                fourth_pEl.className = 'remittance';
-                fourth_pEl.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
+                pEl3.classList.remove('history');
+                pEl4.classList.remove('price');
+                pEl3.className = 'sender';
+                pEl4.className = 'remittance';
+                pEl4.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
             }
 
-            divEl2.appendChild(third_pEl);
-            divEl2.appendChild(fourth_pEl);
+            divEl2.appendChild(pEl3);
+            divEl2.appendChild(pEl4);
 
 
             liEl.appendChild(divEl);
@@ -256,24 +238,24 @@ function start(data, sectionElem) {
             listIndex += 1;
         } else {
             const nextLiEl = sectionElem.querySelector(`.contents__history > ul li:nth-child(${listIndex})`);
-            fitst_pEl.innerHTML = bankLists[i]['history'];
-            secoend_pEl.innerHTML = convert_numeric_units(bankLists[i]['price']);
+            pEl1.innerHTML = bankLists[i]['history'];
+            pEl2.innerHTML = convert_numeric_units(bankLists[i]['price']);
             
             if(bankLists[i]['income'] === 'out') {
                 totalSum += bankLists[i]['price'];
-                fitst_pEl.className = 'history';
-                secoend_pEl.className = 'price';
+                pEl1.className = 'history';
+                pEl2.className = 'price';
             } else {
-                fitst_pEl.classList.remove('history');
-                secoend_pEl.classList.remove('price');
-                fitst_pEl.className = 'sender';
-                secoend_pEl.className = 'remittance';
-                secoend_pEl.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
+                pEl1.classList.remove('history');
+                pEl2.classList.remove('price');
+                pEl1.className = 'sender';
+                pEl2.className = 'remittance';
+                pEl2.innerHTML = `+ ${convert_numeric_units(bankLists[i]['price'])}`;
                 divEl.className = 'remittance_list';
             }
             
-            divEl.appendChild(fitst_pEl);
-            divEl.appendChild(secoend_pEl);
+            divEl.appendChild(pEl1);
+            divEl.appendChild(pEl2);
             nextLiEl.appendChild(divEl);
             
             // 당일 누적 지출 합계 출력
@@ -282,79 +264,72 @@ function start(data, sectionElem) {
     }
 
         // 저금통 만들기
-        const add_saving_btn = sectionElem.querySelector('.add_saving_box');
-        const create_savings_box = sectionElem.querySelector('.create_savings_box');
-        const cancel_saving_box = sectionElem.querySelector('.cancel');
-        const add_savings_box = sectionElem.querySelector('.add');
-        
-        const savings_box_title = sectionElem.querySelector('.savings_box_title');
-        const savings_box_target_amount = sectionElem.querySelector('.savings_box_target_amount');
-        const savings_box_fund_amount = sectionElem.querySelector('.savings_box_fund_amount');
-        console.log(savings_box_fund_amount);
+        const addSavingBtn = sectionElem.querySelector('.add_saving_box');
+        const createSavingsBox = sectionElem.querySelector('.create_savings_box');
+        const cancelSavingBox = sectionElem.querySelector('.cancel');
+        const addSavingsBox = sectionElem.querySelector('.add');
+        const savingsBoxTitle = sectionElem.querySelector('.savings_box_title');
+        const savingsBoxTargetAmount = sectionElem.querySelector('.savings_box_target_amount');
+        const savingsBoxFundAmount = sectionElem.querySelector('.savings_box_fund_amount');
 
-        add_saving_btn.addEventListener('click', (e) => {
-            create_savings_box.style.transition = '1s ease';
-            create_savings_box.style.transform = 'translateY(-576px)';
+        addSavingBtn.addEventListener('click', (e) => {
+            createSavingsBox.style.transition = '1s ease';
+            createSavingsBox.style.transform = 'translateY(-576px)';
         });
     
         
-        cancel_saving_box.addEventListener('click', () => {
-            console.log(cancel_saving_box);
-            create_savings_box.style.transition = '1s';
-            create_savings_box.style.transform = 'translateY(-165px)';
-            savings_box_title.value = '';
-            savings_box_target_amount.value = '';
-            savings_box_fund_amount = '';
+        cancelSavingBox.addEventListener('click', () => {
+            createSavingsBox.style.transition = '1s';
+            createSavingsBox.style.transform = 'translateY(-165px)';
+            savingsBoxTitle.value = '';
+            savingsBoxTargetAmount.value = '';
+            savingsBoxFundAmount = '';
         });
 
 
 
         
         // 저금통 확인 버튼을 클릭할 때
-        add_savings_box.addEventListener('click', () => {
-            console.log(savings_box_title.value);
-            console.log(savings_box_target_amount.value);
-            console.log(add_saving_btn);
-
-            const new_list = document.createElement('li');
-            const new_saving_box = document.createElement('div');
-            const new_savings = document.createElement('div');
-            const new_savings_title = document.createElement('p');
-            const new_savings_fund_amount = document.createElement('p');
+        addSavingsBox.addEventListener('click', () => {
+            const newList = document.createElement('li');
+            const newSavingBox = document.createElement('div');
+            const newSavings = document.createElement('div');
+            const newSavingsTitle = document.createElement('p');
+            const newSavingsFundAmount = document.createElement('p');
             
 
-            new_savings_title.className = 'savings_title';
-            new_savings_fund_amount.className = 'savings_fundAmount';
-            new_savings.className = 'savings';
-            new_saving_box.className = 'saving_box';
+            newSavingsTitle.className = 'savings_title';
+            newSavingsFundAmount.className = 'savings_fundAmount';
+            newSavings.className = 'savings';
+            newSavingBox.className = 'saving_box';
 
 
-            new_savings_title.innerHTML = savings_box_title.value;
-            new_savings_fund_amount.innerHTML = convert_numeric_units(savings_box_target_amount.value);
+            newSavingsTitle.innerHTML = savingsBoxTitle.value;
+            newSavingsFundAmount.innerHTML = convert_numeric_units(savingsBoxTargetAmount.value);
         
 
-            new_savings.appendChild(new_savings_title);
-            new_savings.appendChild(new_savings_fund_amount);
-            new_savings.style.width = `calc(${savings_box_fund_amount.value} / ${savings_box_target_amount.value} * 100%)`;
-            new_savings.style.backgroundColor = `${random_color()}`;
+            newSavings.appendChild(newSavingsTitle);
+            newSavings.appendChild(newSavingsFundAmount);
+            newSavings.style.width = `calc(${savingsBoxFundAmount.value} / ${savingsBoxTargetAmount.value} * 100%)`;
+            newSavings.style.backgroundColor = `${random_color()}`;
 
 
-            new_saving_box.appendChild(new_savings);
+            newSavingBox.appendChild(new_savings);
 
-            new_list.appendChild(new_saving_box);
-            moneyBox.prepend(new_list);
+            newList.appendChild(newSavingBox);
+            moneyBox.prepend(newList);
 
-            create_savings_box.style.transition = '1s';
-            create_savings_box.style.transform = 'translateY(-165px)';
+            createSavingsBox.style.transition = '1s';
+            createSavingsBox.style.transform = 'translateY(-165px)';
 
             // 추가된 저금통 위치로 슬라이더 이동           
-            slider.scrollLeft = add_saving_btn.pageX;
+            slider.scrollLeft = addSavingBtn.pageX;
 
 
         });
 
         // 저금통 만들 때 좌우 화면 슬라이드 안되게 방지
-        create_savings_box.addEventListener('mousemove', () => {
+        createSavingsBox.addEventListener('mousemove', () => {
             MouseDown = false;
         });
 }
