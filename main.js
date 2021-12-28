@@ -135,7 +135,6 @@ function random_color() {
 
 function start(data, sectionElem) {
 
-
     // 계좌 정보
     const accountId = sectionElem.querySelector('.account_id');
     accountId.innerHTML = `${data.accountId}`;
@@ -147,7 +146,7 @@ function start(data, sectionElem) {
     deposit.innerHTML = `${convert_numeric_units(data.deposit)}원`;
 
     // 저금통 목록 출력
-    const moneyBox = sectionElem.querySelector('.contents__money-box ul');
+    const moneyBoxUl = sectionElem.querySelector('.contents__money-box ul');
     data.moneyBox.reverse().forEach(moneyBox => {
         const liEl = document.createElement('li');
         const savingBox = document.createElement('div');
@@ -174,7 +173,7 @@ function start(data, sectionElem) {
         savingBox.className = 'saving_box';
         savingBox.appendChild(savings);
         liEl.appendChild(savingBox);
-        moneyBox.prepend(liEl);
+        moneyBoxUl.prepend(liEl);
     });
 
 
