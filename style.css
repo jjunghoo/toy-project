@@ -218,7 +218,7 @@ section .contents .contents__money-box .saving_box {
     padding-right: 8px;
 }
 section .contents .contents__money-box .saving_box .savings {
-    border-radius: 6px 0px 0px 6px;
+    border-radius: 6px;
     padding: 2px 5px;
 }
 section .contents .contents__money-box .saving_box .savings p {
